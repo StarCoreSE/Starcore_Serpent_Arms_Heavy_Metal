@@ -153,7 +153,29 @@
         </Wave>
       </Waves>
     </Sound>
-	<Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>Monopole_Charge_Distant</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>7000</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>35</DynamicMusicAmount>
+      <Volume>3</Volume>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\Gauss\Monopole_Charge_Distant.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
+
+    
+    <Sound>
       <Id>
         <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
         <SubtypeId>Charon_Charge</SubtypeId>
@@ -192,6 +214,28 @@
           <Start>Audio\Gauss\Charon_Barrel.wav</Start>
         </Wave>
         </Waves>
+    </Sound>
+    
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>Monopole_Charge</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>7000</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>35</DynamicMusicAmount>
+      <Volume>2</Volume>
+      <DistantSounds>
+        <DistantSound DistanceCrossfade="10" Distance="1750" Sound="Monopole_Charge_Distant" />
+      </DistantSounds>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\Gauss\Monopole_Charge.wav</Start>
+        </Wave>
+      </Waves>
     </Sound>
     
 	<Sound>

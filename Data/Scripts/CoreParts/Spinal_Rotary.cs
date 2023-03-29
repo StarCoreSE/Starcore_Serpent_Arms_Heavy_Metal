@@ -144,7 +144,7 @@ namespace Scripts {
                 },
                 Audio = new HardPointAudioDef
                 {
-                    PreFiringSound = "Charon_Charge", // Audio for warmup effect.
+                    PreFiringSound = "Monopole_Charge", // Audio for warmup effect.
                     FiringSound = "Rotary_Gauss_Fire", // Audio for firing.
                     FiringSoundPerShot = true, // Whether to replay the sound for each shot, or just loop over the entire track while firing.
                     ReloadSound = "", // Sound SubtypeID, for when your Weapon is in a reloading state
