@@ -11,13 +11,13 @@ using static Scripts.Structure.WeaponDefinition.HardPointDef.HardwareDef.Hardwar
 namespace Scripts {   
     partial class Parts {
         // Don't edit above this line
-        WeaponDefinition K_SA_Launcher => new WeaponDefinition
+        WeaponDefinition Grimlock_Launcher => new WeaponDefinition
         {
             Assignments = new ModelAssignmentsDef
             {
                 MountPoints = new[] {
                     new MountPointDef {
-                        SubtypeId = "K_SA_Launcher_FixedMount", // Block Subtypeid. Your Cubeblocks contain this information
+                        SubtypeId = "65_Launcher_FixedMount", // Block Subtypeid. Your Cubeblocks contain this information
                         SpinPartId = "None", // For weapons with a spinning barrel such as Gatling Guns.
                         MuzzlePartId = "None", // The subpart where your muzzle empties are located. This is often the elevation subpart.
                         AzimuthPartId = "None", // Your Rotating Subpart, the bit that moves sideways
@@ -118,27 +118,27 @@ namespace Scripts {
                 Loading = new LoadingDef
                 {
                     RateOfFire = 600, // Set this to 3600 for beam weapons. This is how fast your Gun fires.
-                    BarrelsPerShot = 1, // How many muzzles will fire a projectile per fire event.
+                    BarrelsPerShot = 2, // How many muzzles will fire a projectile per fire event.
                     TrajectilesPerBarrel = 1, // Number of projectiles per muzzle per fire event.
                     SkipBarrels = 0, // Number of muzzles to skip after each fire event.
-                    ReloadTime = 60, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    ReloadTime = 180, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     MagsToLoad = 1, // Number of physical magazines to consume on reload.
                     DelayUntilFire = 0, // How long the weapon waits before shooting after being told to fire. Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    HeatPerShot = 1, // Heat generated per shot.
-                    MaxHeat = 200, // Max heat before weapon enters cooldown (70% of max heat).
-                    Cooldown = .999f, // Percentage of max heat to be under to start firing again after overheat; accepts 0 - 0.95
-                    HeatSinkRate = 75, // Amount of heat lost per second.
+                    HeatPerShot = 60, // Heat generated per shot.
+                    MaxHeat = 120, // Max heat before weapon enters cooldown (70% of max heat).
+                    Cooldown = 0f, // Percentage of max heat to be under to start firing again after overheat; accepts 0 - 0.95
+                    HeatSinkRate = 1, // Amount of heat lost per second.
                     DegradeRof = false, // Progressively lower rate of fire when over 80% heat threshold (80% of max heat).
                     ShotsInBurst = 1, // Use this if you don't want the weapon to fire an entire physical magazine in one go. Should not be more than your magazine capacity.
                     DelayAfterBurst = 10, // How long to spend "reloading" after each burst. Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFull = false, // Whether the weapon should fire the full magazine (or the full burst instead if ShotsInBurst > 0), even if the target is lost or the player stops firing prematurely.
+                    FireFull = true, // Whether the weapon should fire the full magazine (or the full burst instead if ShotsInBurst > 0), even if the target is lost or the player stops firing prematurely.
                     GiveUpAfter = false, // Whether the weapon should drop its current target and reacquire a new target after finishing its magazine or burst.
                     BarrelSpinRate = 0, // Visual only, 0 disables and uses RateOfFire.
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                     SpinFree = false, // Spin barrel while not firing.
                     StayCharged = false, // Will start recharging whenever power cap is not full.
                     MaxActiveProjectiles = 0, // Maximum number of drones in flight (only works for drone launchers)
-                    MaxReloads = 1, // Maximum number of reloads in the LIFETIME of a weapon
+                    MaxReloads = -1, // Maximum number of reloads in the LIFETIME of a weapon
                 },
                 Audio = new HardPointAudioDef
                 {
@@ -181,14 +181,13 @@ namespace Scripts {
                 },
             },
             Ammos = new[] {
-                K_SA_Grimlock_Standard,
-                K_SA_KineticKill,
-                K_SA_GravityFissure,
-                K_SA_KineticKill_Shrap,
-                K_SA_Grimlock_Shrap,
-                K_SA_Grimlock_Standard_Terminal,
-                K_SA_GravityFissure_Terminal,
-                K_SA_Grimlock_Standard_EWAR,
+                Grim_SC_Launch,
+                Grim_SC_Terminal,
+                Grim_SC_Fragment,
+                Grim_DIO_Launch,
+                Grim_DIO_Terminal,
+                Grim_DIO_EWAR
+
                 // Must list all primary, shrapnel, and pattern ammos.
             },
             //Animations = K_SA_LauncherAnimations,
