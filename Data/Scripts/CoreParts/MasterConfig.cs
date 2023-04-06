@@ -8,7 +8,6 @@ namespace Scripts
             PartDefinitions(
             SA_HMI_GaussIIC,
             SA_HMI_PrototypeGaussBlitz,
-            SA_HMI_GrimlockII,
 			Grimlock_Launcher,
 			Hellfire_Laser,
             SA_HMI_GaussER_FM,
