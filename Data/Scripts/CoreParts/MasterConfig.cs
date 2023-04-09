@@ -19,7 +19,8 @@ namespace Scripts
             K_SA_GaussExtendedRange,
             SA_HMI_Erebos,
             K_SA_LoW_CapitalSpinalA,
-            SA_HeavyMetal_Spinal_Rotary
+            SA_HeavyMetal_Spinal_Rotary,
+            SA_HeavyMetal_Spinal_Rotary_Reskin
             );
         }
     }

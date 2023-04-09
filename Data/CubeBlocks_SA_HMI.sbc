@@ -454,6 +454,89 @@ Ammunition: [2400m/s,] [Kinetic] </Description>
       <EmissiveColorPreset>Default</EmissiveColorPreset>
     </Definition>
 
+<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+    <!-- Rotary -->
+    <Id>
+     <TypeId>ConveyorSorter</TypeId>
+     <SubtypeId>K_SA_HeavyMetal_Spinal_Rotary_Reskin</SubtypeId>
+    </Id>
+    <DisplayName>Magnetic Monopole Compression Cannon</DisplayName>
+    <Description>
+		[Skin 2]
+		Long Ranged Fixed: [55km]
+		Magazine Capacity: [1]
+		Rate of Fire: [60]
+		Reload Speed: [1 seconds]
+		Ammunition: [2400m/s,] [Kinetic]
+	</Description>
+    <Icon>Textures\GUI\Icons\Cubes\MonopoleReskin.dds</Icon>
+    <CubeSize>Large</CubeSize>
+    <GuiVisible>true</GuiVisible>
+    <BlockTopology>TriangleMesh</BlockTopology>
+    <Size x="5" y="5" z="40" />
+    <ModelOffset x="0" y="0" z="0" />
+    <Model>Models\MonopoleReskin.mwm</Model>
+    <UseModelIntersection>false</UseModelIntersection>
+    <Components>
+     <Component Subtype="SteelPlate" Count="4500" />
+     <Component Subtype="Construction" Count="9000" />
+     <Component Subtype="GravityGenerator" Count="550" />
+     <Component Subtype="Superconductor" Count="4000" />
+     <Component Subtype="Reactor" Count="1800" />
+     <Component Subtype="Thrust" Count="900" />
+     <Component Subtype="Motor" Count="1500" />
+     <Component Subtype="Computer" Count="1000" />
+     <Component Subtype="PowerCell" Count="3600"/>
+     <Component Subtype="LargeTube" Count="2700" />
+     <Component Subtype="Construction" Count="2400" />
+     <Component Subtype="SteelPlate" Count="1200" />
+    </Components>
+    <CriticalComponent Subtype="Computer" Index="0" />
+    <MountPoints>
+     <MountPoint Side="Top" StartX="0" StartY="0" EndX="5" EndY="1" />
+     <MountPoint Side="Bottom" StartX="0" StartY="40" EndX="5" EndY="39" />
+     <MountPoint Side="Left" StartX="40" StartY="0" EndX="39" EndY="5" />
+     <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="5" />
+     <MountPoint Side="Back" StartX="0" StartY="0" EndX="5" EndY="5" />
+    </MountPoints>
+    <VoxelPlacement>
+     <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+     <StaticMode>
+    	 <PlacementMode>OutsideVoxel</PlacementMode>
+    	 <MaxAllowed>0.2</MaxAllowed>
+    	 <MinAllowed>0</MinAllowed>
+     </StaticMode>
+     <DynamicMode>
+    	 <PlacementMode>OutsideVoxel</PlacementMode>
+    	 <MaxAllowed>0.2</MaxAllowed>
+    	 <MinAllowed>0.01</MinAllowed>
+     </DynamicMode>
+    </VoxelPlacement>
+    <BlockPairName>K_SA_HeavyMetal_Spinal_Rotary_Reskin</BlockPairName>
+    <MirroringY>Z</MirroringY>
+    <MirroringZ>Y</MirroringZ>
+    <EdgeType>Light</EdgeType>
+    <BuildTimeSeconds>600</BuildTimeSeconds>
+    <OverlayTexture>Textures\GUI\Screens\K_camera_overlay_1.dds</OverlayTexture>
+    <WeaponDefinitionId Subtype="K_SA_Gun"/>
+    <InventoryMaxVolume>1</InventoryMaxVolume>
+    <DamageEffectId>213</DamageEffectId>
+    <AiEnabled>false</AiEnabled>
+    <DamagedSound>ParticleWeapExpl</DamagedSound>
+    <ResourceSinkGroup>Defense</ResourceSinkGroup>
+    <MinElevationDegrees>-5</MinElevationDegrees>
+    <MaxElevationDegrees>100</MaxElevationDegrees>
+    <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+    <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+    <RotationSpeed>0.0001</RotationSpeed>
+    <ElevationSpeed>0.0001 </ElevationSpeed>
+    <IdleRotation>false</IdleRotation>
+    <MaxRangeMeters>3500</MaxRangeMeters>
+    <MinFov>0.0001</MinFov>
+    <MaxFov>2</MaxFov>
+    <EmissiveColorPreset>Default</EmissiveColorPreset>
+</Definition>
+
 <Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition"> <!-- Grimlock II Launcher -->
       <Id>
         <TypeId>ConveyorSorter</TypeId>

@@ -27,6 +27,7 @@
 <string>K_SA_LoW_CapitalSpinalA</string>
 <string>SA_HMI_Erebos</string>
         <string>K_SA_HeavyMetal_Spinal_Rotary</string>
+        <string>K_SA_HeavyMetal_Spinal_Rotary_Reskin</string>
       </ItemIds>
     </Category>
 	
