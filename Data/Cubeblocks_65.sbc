@@ -92,7 +92,7 @@
 			<BlockTopology>TriangleMesh</BlockTopology>
 			<Size x="1" y="1" z="4" />
 			<ModelOffset x="0" y="0" z= "-1.25" />
-			<Model>Models\BT_Beam_Laser.mwm</Model>
+			<Model>Models\BT_Beam_Laser_Elongated.mwm</Model>
 			<Components>
 				<Component Subtype="SteelPlate" Count="165" />
 				<Component Subtype="Construction" Count="115" />
