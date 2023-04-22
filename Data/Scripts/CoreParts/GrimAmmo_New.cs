@@ -846,7 +846,7 @@ namespace Scripts
                         Enable = true,
                         Length = 5f, //
                         Width = 0.1f, //
-                        Color = Color(red: 35, green: 2, blue: 0f, alpha: 1), // RBG 255 is Neon Glowing, 100 is Quite Bright.
+                        Color = Color(red: 255, green: 2, blue: 0f, alpha: 1), // RBG 255 is Neon Glowing, 100 is Quite Bright.
                         FactionColor = DontUse, // DontUse, Foreground, Background.
                         VisualFadeStart = 0, // Number of ticks the weapon has been firing before projectiles begin to fade their color
                         VisualFadeEnd = 0, // How many ticks after fade began before it will be invisible.
@@ -882,7 +882,7 @@ namespace Scripts
                         },
                         TextureMode = Normal,
                         DecayTime = 6, // In Ticks. 1 = 1 Additional Tracer generated per motion, 33 is 33 lines drawn per projectile. Keep this number low.
-                        Color = Color(red: 25, green: 0, blue: 1, alpha: 1),
+                        Color = Color(red: 255, green: 0, blue: 1, alpha: 1),
                         FactionColor = DontUse, // DontUse, Foreground, Background.
                         Back = false,
                         CustomWidth = 0.02f,
