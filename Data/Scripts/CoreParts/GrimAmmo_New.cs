@@ -42,7 +42,7 @@ namespace Scripts
         private AmmoDef Grim_SC_Launch => new AmmoDef // Your ID, for slotting into the Weapon CS
         {
             AmmoMagazine = "Energy", // SubtypeId of physical ammo magazine. Use "Energy" for weapons without physical ammo.
-            AmmoRound = "HVSC Launch", // Name of ammo in terminal, should be different for each ammo type used by the same weapon. Is used by Shrapnel.
+            AmmoRound = "HVSC", // Name of ammo in terminal, should be different for each ammo type used by the same weapon. Is used by Shrapnel.
             HybridRound = false, // Use both a physical ammo magazine and energy per shot.
             EnergyCost = 0.5f, // Scaler for energy per shot (EnergyCost * BaseDamage * (RateOfFire / 3600) * BarrelsPerShot * TrajectilesPerBarrel). Uses EffectStrength instead of BaseDamage if EWAR.
             BaseDamage = 10f, // Direct damage; one steel plate is worth 100.
@@ -846,7 +846,7 @@ namespace Scripts
                         Enable = true,
                         Length = 5f, //
                         Width = 0.1f, //
-                        Color = Color(red: 35, green: 2, blue: 0f, alpha: 1), // RBG 255 is Neon Glowing, 100 is Quite Bright.
+                        Color = Color(red: 255, green: 2, blue: 0f, alpha: 1), // RBG 255 is Neon Glowing, 100 is Quite Bright.
                         FactionColor = DontUse, // DontUse, Foreground, Background.
                         VisualFadeStart = 0, // Number of ticks the weapon has been firing before projectiles begin to fade their color
                         VisualFadeEnd = 0, // How many ticks after fade began before it will be invisible.
@@ -882,7 +882,7 @@ namespace Scripts
                         },
                         TextureMode = Normal,
                         DecayTime = 6, // In Ticks. 1 = 1 Additional Tracer generated per motion, 33 is 33 lines drawn per projectile. Keep this number low.
-                        Color = Color(red: 25, green: 0, blue: 1, alpha: 1),
+                        Color = Color(red: 255, green: 0, blue: 1, alpha: 1),
                         FactionColor = DontUse, // DontUse, Foreground, Background.
                         Back = false,
                         CustomWidth = 0.02f,
@@ -1368,7 +1368,7 @@ namespace Scripts
         private AmmoDef Grim_DIO_Launch => new AmmoDef // Your ID, for slotting into the Weapon CS
         {
             AmmoMagazine = "Energy", // SubtypeId of physical ammo magazine. Use "Energy" for weapons without physical ammo.
-            AmmoRound = "DIO Launch", // Name of ammo in terminal, should be different for each ammo type used by the same weapon. Is used by Shrapnel.
+            AmmoRound = "DIO", // Name of ammo in terminal, should be different for each ammo type used by the same weapon. Is used by Shrapnel.
             HybridRound = false, // Use both a physical ammo magazine and energy per shot.
             EnergyCost = 0.5f, // Scaler for energy per shot (EnergyCost * BaseDamage * (RateOfFire / 3600) * BarrelsPerShot * TrajectilesPerBarrel). Uses EffectStrength instead of BaseDamage if EWAR.
             BaseDamage = 10f, // Direct damage; one steel plate is worth 100.
@@ -1378,7 +1378,7 @@ namespace Scripts
             DecayPerShot = 0f, // Damage to the firing weapon itself. 
                                //float.MaxValue will drop the weapon to the first build state and destroy all components used for construction
                                //If greater than cube integrity it will remove the cube upon firing, without causing deformation (makes it look like the whole "block" flew away)
-            HardPointUsable = true, // Whether this is a primary ammo type fired directly by the turret. Set to false if this is a shrapnel ammoType and you don't want the turret to be able to select it directly.
+            HardPointUsable = false, // Whether this is a primary ammo type fired directly by the turret. Set to false if this is a shrapnel ammoType and you don't want the turret to be able to select it directly.
             EnergyMagazineSize = 1, // For energy weapons, how many shots to fire before reloading.
             IgnoreWater = false, // Whether the projectile should be able to penetrate water when using WaterMod.
             IgnoreVoxels = false, // Whether the projectile should be able to penetrate voxels.
@@ -1854,7 +1854,7 @@ namespace Scripts
                 Radial = 0f, // Determines starting angle for Degrees of spread above.  IE, 0 degrees and 90 radial goes perpendicular to travel path
                 MaxChildren = 0, // number of maximum branches for fragments from the roots point of view, 0 is unlimited
                 IgnoreArming = true, // If true, ignore ArmOnHit or MinArmingTime in EndOfLife definitions
-                ArmWhenHit = true, // Setting this to true will arm the projectile when its shot by other projectiles.
+                ArmWhenHit = false, // Setting this to true will arm the projectile when its shot by other projectiles.
                 AdvOffset = Vector(x: 0, y: 0, z: 0), // advanced offsets the fragment by xyz coordinates relative to parent, value is read from fragment ammo type.
                 TimedSpawns = new TimedSpawnDef // disables FragOnEnd in favor of info specified below, unless ArmWhenHit or Eol ArmOnlyOnHit is set to true then both kinds of frags are active
                 {
@@ -2057,7 +2057,7 @@ namespace Scripts
                 TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 MaxLifeTime = 1200, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..). time begins at 0 and time must EXCEED this value to trigger "time > maxValue". Please have a value for this, It stops Bad things.
                 AccelPerSec = 1200f, // Acceleration in Meters Per Second. Projectile starts on tick 0 at its parents (weapon/other projectiles) travel velocity.
-                DesiredSpeed = 1800, // voxel phasing if you go above 5100
+                DesiredSpeed = 1500, // voxel phasing if you go above 5100
                 MaxTrajectory = 15000f, // Max Distance the projectile or beam can Travel.
                 DeaccelTime = 0, // 0 is disabled, a value causes the projectile to come to rest overtime, (Measured in game ticks, 60 = 1 second)
                 GravityMultiplier = 0f, // Gravity multiplier, influences the trajectory of the projectile, value greater than 0 to enable. Natural Gravity Only.
@@ -2435,8 +2435,8 @@ namespace Scripts
                 Enable = true, // Enables EWAR effects AND DISABLES BASE DAMAGE AND AOE DAMAGE!!
                 Type = Pull, // EnergySink, Emp, Offense, Nav, Dot, AntiSmart, JumpNull, Anchor, Tractor, Pull, Push, 
                 Mode = Field, // Effect , Field
-                Strength = 15f,
-                Radius = 500f, // Meters
+                Strength = 10f,
+                Radius = 250f, // Meters
                 Duration = 10, // In Ticks
                 StackDuration = false, // Combined Durations
                 Depletable = true,

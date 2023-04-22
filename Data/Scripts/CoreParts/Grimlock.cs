@@ -183,11 +183,9 @@ namespace Scripts {
             Ammos = new[] {
                 Grim_SC_Launch,
                 Grim_SC_Terminal,
-                Grim_SC_Fragment,
-                Grim_DIO_Launch,
-                Grim_DIO_Terminal,
-                Grim_DIO_EWAR
-
+                Grim_SC_Fragment
+				
+                
                 // Must list all primary, shrapnel, and pattern ammos.
             },
             //Animations = K_SA_LauncherAnimations,
