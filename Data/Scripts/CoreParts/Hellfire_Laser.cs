@@ -128,8 +128,8 @@ namespace Scripts
                     MagsToLoad = 1, // Number of physical magazines to consume on reload.
                     DelayUntilFire = 10, // How long the weapon waits before shooting after being told to fire. Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 2, // Heat generated per shot.
-                    MaxHeat = 300, // Max heat before weapon enters cooldown (70% of max heat).
-                    Cooldown = 0f, // Percentage of max heat to be under to start firing again after overheat; accepts 0 - 0.95
+                    MaxHeat = 600, // Max heat before weapon enters cooldown (70% of max heat).
+                    Cooldown = = 0.5f, // Percentage of max heat to be under to start firing again after overheat; accepts 0 - 0.95
                     HeatSinkRate = 30, // Amount of heat lost per second.
                     DegradeRof = false, // Progressively lower rate of fire when over 80% heat threshold (80% of max heat).
                     ShotsInBurst = 0, // Use this if you don't want the weapon to fire an entire physical magazine in one go. Should not be more than your magazine capacity.
