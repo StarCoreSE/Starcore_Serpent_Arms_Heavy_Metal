@@ -138,7 +138,7 @@
 	  <PitchVariation>15</PitchVariation>
       <Waves>
         <Wave Type="D3">
-          <Start>Audio\HellfireLaser.wav</Start>
+          <Start>Audio\HellfireLaserLONG.wav</Start>
         </Wave>
         </Waves>
     </Sound>

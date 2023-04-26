@@ -184,7 +184,7 @@ namespace Scripts
             },
             Ammos = new[] {
                 Hellfire_Laser_Ammo,
-                Hellfire_Det_Ammo
+                Hellfire_Det_Ammo,
                 // Must list all primary, shrapnel, and pattern ammos.
             },
             //Animations = Weapon75_Animation,
