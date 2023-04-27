@@ -144,11 +144,6 @@ namespace Scripts
                     Detonation = Kinetic,
                     Shield = Kinetic, // Damage against shields is currently all of one type per projectile. Shield Bypass Weapons, always Deal Energy regardless of this line
                 },
-                Deform = new DeformDef
-                {
-                    DeformType = AllDamagedBlocks,
-                    DeformDelay = 60,
-                },
                 Custom = new CustomScalesDef
                 {
                     SkipOthers = NoSkip, // Controls how projectile interacts with other blocks in relation to those defined here, NoSkip, Exclusive, Inclusive.
