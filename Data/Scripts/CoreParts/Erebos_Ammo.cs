@@ -66,7 +66,7 @@ namespace Scripts
             Fragment = new FragmentDef // Formerly known as Shrapnel. Spawns specified ammo fragments on projectile death (via hit or detonation).
             {
                 AmmoRound = "Erebos Ammo AOE", // AmmoRound field of the ammo to spawn.
-                Fragments = 4, // Number of projectiles to spawn.
+                Fragments = 5, // Number of projectiles to spawn.
                 Degrees = 270, // Cone in which to randomize direction of spawned projectiles.
                 Reverse = false, // Spawn projectiles backward instead of forward.
                 DropVelocity = false, // fragments will not inherit velocity from parent.
@@ -78,14 +78,14 @@ namespace Scripts
                 TimedSpawns = new TimedSpawnDef // disables FragOnEnd in favor of info specified below
                 {
                     Enable = true, // Enables TimedSpawns mechanism
-                    Interval = 0, // Time between spawning fragments, in ticks, 0 means every tick, 1 means every other
-                    StartTime = 1, // Time delay to start spawning fragments, in ticks, of total projectile life
+                    Interval = 1, // Time between spawning fragments, in ticks, 0 means every tick, 1 means every other
+                    StartTime = 0, // Time delay to start spawning fragments, in ticks, of total projectile life
                     MaxSpawns = 1, // Max number of fragment children to spawn
                     Proximity = 35f, // Starting distance from target bounding sphere to start spawning fragments, 0 disables this feature.  No spawning outside this distance
                     ParentDies = true, // Parent dies once after it spawns its last child.
                     PointAtTarget = true, // Start fragment direction pointing at Target
-                    PointType = Direct, // Point accuracy, Direct, Lead (always fire), Predict (only fire if it can hit)
-                    DirectAimCone = 360f, //Aim cone used for Direct fire, in degrees
+                    PointType = Lead, // Point accuracy, Direct, Lead (always fire), Predict (only fire if it can hit)
+                    DirectAimCone = 200f, //Aim cone used for Direct fire, in degrees
                     GroupSize = 0, // Number of spawns in each group
                     GroupDelay = 0, // Delay between each group.
                 },
@@ -108,7 +108,7 @@ namespace Scripts
                 MaxIntegrity = 0f, // Blocks with integrity higher than this value will be immune to damage from this projectile; 0 = disabled.
                 DamageVoxels = false, // Whether to damage voxels.
                 SelfDamage = false, // Whether to damage the weapon's own grid.
-                HealthHitModifier = 75, // How much Health to subtract from another projectile on hit; defaults to 1 if zero or less.
+                HealthHitModifier = 175, // How much Health to subtract from another projectile on hit; defaults to 1 if zero or less.
                 VoxelHitModifier = 1, // Voxel damage multiplier; defaults to 1 if zero or less.
                 Characters = -1f, // Character damage multiplier; defaults to 1 if zero or less.
                 // For the following modifier values: -1 = disabled (higher performance), 0 = no damage, 0.01f = 1% damage, 2 = 200% damage.
@@ -141,11 +141,6 @@ namespace Scripts
                     AreaEffect = Energy,
                     Detonation = Energy,
                     Shield = Energy, // Damage against shields is currently all of one type per projectile. Shield Bypass Weapons, always Deal Energy regardless of this line
-                },
-                Deform = new DeformDef
-                {
-                    DeformType = AllDamagedBlocks,
-                    DeformDelay = 30,
                 },
                 Custom = new CustomScalesDef
                 {
@@ -187,9 +182,9 @@ namespace Scripts
                 {
                     Enable = true,
                     Radius = 45f, // Radius of AOE effect, in meters.
-                    Damage = 35000f,
+                    Damage = 45000f,
                     Depth = 45f, // Max depth of AOE effect, in meters. 0=disabled, and AOE effect will reach to a depth of the radius value
-                    MaxAbsorb = 5000f, // Soft cutoff for damage, except for pooled falloff.  If pooled falloff, limits max damage per block.
+                    MaxAbsorb = 0f, // Soft cutoff for damage, except for pooled falloff.  If pooled falloff, limits max damage per block.
                     Falloff = Pooled, //.NoFalloff applies the same damage to all blocks in radius
                     //.Linear drops evenly by distance from center out to max radius
                     //.Curve drops off damage sharply as it approaches the max radius
@@ -275,7 +270,7 @@ namespace Scripts
                 TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 MaxLifeTime = 240, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..). Please have a value for this, It stops Bad things.
                 AccelPerSec = 0f, // Meters Per Second. This is the spawning Speed of the Projectile, and used by turning.
-                DesiredSpeed = 1000, // voxel phasing if you go above 5100
+                DesiredSpeed = 1400, // voxel phasing if you go above 5100
                 MaxTrajectory = 4500f, // Max Distance the projectile or beam can Travel.
                 DeaccelTime = 0, // 0 is disabled, a value causes the projectile to come to rest, spawn a field and remain for a time (Measured in game ticks, 60 = 1 second)
                 GravityMultiplier = 0f, // Gravity multiplier, influences the trajectory of the projectile, value greater than 0 to enable. Natural Gravity Only.
@@ -286,9 +281,9 @@ namespace Scripts
                 {
                     SteeringLimit = 0, // 0 means no limit, value is in degrees, good starting is 150.  This enable advanced smart "control", cost of 3 on a scale of 1-5, 0 being basic smart.
                     Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
-                    Aggressiveness = 0f, // controls how responsive tracking is.
+                    Aggressiveness = 0f, // controls how responsive tracking is, recommended value 3-5.
                     MaxLateralThrust = 0, // controls how sharp the projectile may turn, this is the cheaper but less realistic version of SteeringLimit, cost of 2 on a scale of 1-5, 0 being basic smart.
-                    NavAcceleration = 0, // helps influence how the projectile steers. 
+                    NavAcceleration = 0, // helps influence how the projectile steers, 0 defaults to 1/2 Aggressiveness value or 0 if its 0, a value less than 0 disables this feature. 
                     TrackingDelay = 0, // Measured in Shape diameter units traveled.
                     AccelClearance = false, // Setting this to true will prevent smart acceleration until it is clear of the grid and tracking delay has been met (free fall).
                     MaxChaseTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -306,6 +301,9 @@ namespace Scripts
                     FocusEviction = false, // If FocusOnly and this to true will force smarts to lose target when there is no focus target
                     ScanRange = 0, // 0 disables projectile screening, the max range that this projectile will be seen at by defending grids (adds this projectile to defenders lookup database). 
                     NoSteering = true, // this disables target follow and instead travel straight ahead (but will respect offsets).
+                    MinTurnSpeed = 0, // set this to a reasonable value to avoid projectiles from spinning in place or being too aggressive turing at slow speeds 
+                    NoTargetApproach = false, // If true approaches can begin prior to the projectile ever having had a target.
+                    AltNavigation = false, // If true this will swap the default navigation algorithm from ProNav to ZeroEffort Miss.  Zero effort is more direct/precise but less cinematic 
                 },
                 Mines = new MinesDef  // Note: This is being investigated. Please report to Github, any issues.
                 {
@@ -443,7 +441,7 @@ namespace Scripts
             AmmoRound = "Erebos Ammo AOE", // Name of ammo in terminal, should be different for each ammo type used by the same weapon. Is used by Shrapnel.
             HybridRound = true, // Use both a physical ammo magazine and energy per shot.
             EnergyCost = 1f, // Scaler for energy per shot (EnergyCost * BaseDamage * (RateOfFire / 3600) * BarrelsPerShot * TrajectilesPerBarrel). Uses EffectStrength instead of BaseDamage if EWAR.
-            BaseDamage = 100f, // Direct damage; one steel plate is worth 100.
+            BaseDamage = 1000f, // Direct damage; one steel plate is worth 100.
             Mass = 0f, // In kilograms; how much force the impact will apply to the target.
             Health = 0, // How much damage the projectile can take from other projectiles (base of 1 per hit) before dying; 0 disables this and makes the projectile untargetable.
             BackKickForce = 0f, // Recoil. This is applied to the Parent Grid.
@@ -508,7 +506,7 @@ namespace Scripts
                 MaxIntegrity = 0f, // Blocks with integrity higher than this value will be immune to damage from this projectile; 0 = disabled.
                 DamageVoxels = false, // Whether to damage voxels.
                 SelfDamage = false, // Whether to damage the weapon's own grid.
-                HealthHitModifier = 45, // How much Health to subtract from another projectile on hit; defaults to 1 if zero or less.
+                HealthHitModifier = 75, // How much Health to subtract from another projectile on hit; defaults to 1 if zero or less.
                 VoxelHitModifier = 1, // Voxel damage multiplier; defaults to 1 if zero or less.
                 Characters = -1f, // Character damage multiplier; defaults to 1 if zero or less.
                 // For the following modifier values: -1 = disabled (higher performance), 0 = no damage, 0.01f = 1% damage, 2 = 200% damage.
@@ -542,11 +540,6 @@ namespace Scripts
                     Detonation = Energy,
                     Shield = Energy, // Damage against shields is currently all of one type per projectile. Shield Bypass Weapons, always Deal Energy regardless of this line
                 },
-                Deform = new DeformDef
-                {
-                    DeformType = AllDamagedBlocks,
-                    DeformDelay = 30,
-                },
                 Custom = new CustomScalesDef
                 {
                     SkipOthers = NoSkip, // Controls how projectile interacts with other blocks in relation to those defined here, NoSkip, Exclusive, Inclusive.
@@ -570,9 +563,9 @@ namespace Scripts
                 ByBlockHit = new ByBlockHitDef
                 {
                     Enable = false,
-                    Radius = 5f, // Meters
-                    Damage = 5f,
-                    Depth = 1f, // Max depth of AOE effect, in meters. 0=disabled, and AOE effect will reach to a depth of the radius value
+                    Radius = 0f, // Meters
+                    Damage = 0f,
+                    Depth = 0f, // Max depth of AOE effect, in meters. 0=disabled, and AOE effect will reach to a depth of the radius value
                     MaxAbsorb = 0f, // Soft cutoff for damage, except for pooled falloff.  If pooled falloff, limits max damage per block.
                     Falloff = Linear, //.NoFalloff applies the same damage to all blocks in radius
                     //.Linear drops evenly by distance from center out to max radius
@@ -587,9 +580,9 @@ namespace Scripts
                 {
                     Enable = true,
                     Radius = 16f, // Radius of AOE effect, in meters.
-                    Damage = 95000f,
+                    Damage = 15000f,
                     Depth = 16f, // Max depth of AOE effect, in meters. 0=disabled, and AOE effect will reach to a depth of the radius value
-                    MaxAbsorb = 5000f, // Soft cutoff for damage, except for pooled falloff.  If pooled falloff, limits max damage per block.
+                    MaxAbsorb = 0f, // Soft cutoff for damage, except for pooled falloff.  If pooled falloff, limits max damage per block.
                     Falloff = Pooled, //.NoFalloff applies the same damage to all blocks in radius
                     //.Linear drops evenly by distance from center out to max radius
                     //.Curve drops off damage sharply as it approaches the max radius
