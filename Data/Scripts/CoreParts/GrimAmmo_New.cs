@@ -3497,8 +3497,8 @@ namespace Scripts
                     {
                         Enable = true,
                         Length = 15f, //
-                        Width = 0.5f, //
-                        Color = Color(red: 25, green: 10, blue: 10, alpha: 15), // RBG 255 is Neon Glowing, 100 is Quite Bright.
+                        Width = 0.8f, //
+                        Color = Color(red: 50, green: 20, blue: 20, alpha: 0.2), // RBG 255 is Neon Glowing, 100 is Quite Bright.
                         FactionColor = DontUse, // DontUse, Foreground, Background.
                         VisualFadeStart = 0, // Number of ticks the weapon has been firing before projectiles begin to fade their color
                         VisualFadeEnd = 0, // How many ticks after fade began before it will be invisible.
@@ -3534,7 +3534,7 @@ namespace Scripts
                         },
                         TextureMode = Normal,
                         DecayTime = 10, // In Ticks. 1 = 1 Additional Tracer generated per motion, 33 is 33 lines drawn per projectile. Keep this number low.
-                        Color = Color(red: 25, green: 10, blue: 10, alpha: 15),
+                        Color = Color(red: 50, green: 20, blue: 20, alpha: 0.2),
                         FactionColor = DontUse, // DontUse, Foreground, Background.
                         Back = false,
                         CustomWidth = 0.04f,
@@ -4122,7 +4122,7 @@ namespace Scripts
                 },
                 Shields = new ShieldDef
                 {
-                    Modifier = 6f, // Multiplier for damage against shields.
+                    Modifier = 5f, // Multiplier for damage against shields.
                     Type = Default, // Damage vs healing against shields; Default, Heal
                     BypassModifier = -1f, // If greater than zero, the percentage of damage that will penetrate the shield.
                 },
