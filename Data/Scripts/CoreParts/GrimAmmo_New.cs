@@ -3939,8 +3939,8 @@ namespace Scripts
                     {
                         Enable = true,
                         Length = 1f, //
-                        Width = 0.3f, //
-                        Color = Color(red: 50, green: 50, blue: 50, alpha: 0.5f), // RBG 255 is Neon Glowing, 100 is Quite Bright.
+                        Width = 0.5f, //
+                        Color = Color(red: 150, green: 150, blue: 150, alpha: 0.5f), // RBG 255 is Neon Glowing, 100 is Quite Bright.
                         FactionColor = DontUse, // DontUse, Foreground, Background.
                         VisualFadeStart = 0, // Number of ticks the weapon has been firing before projectiles begin to fade their color
                         VisualFadeEnd = 0, // How many ticks after fade began before it will be invisible.
