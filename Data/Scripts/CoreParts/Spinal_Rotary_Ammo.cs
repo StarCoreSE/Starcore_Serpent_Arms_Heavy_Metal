@@ -316,7 +316,7 @@ namespace Scripts
                 {
                     Ammo = new ParticleDef
                     {
-                        Name = "AutoCoil_Zaps", //ShipWelderArc
+                        Name = "AutoCoil_ZapsReduced", //ShipWelderArc
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
                         {
