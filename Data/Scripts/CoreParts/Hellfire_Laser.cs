@@ -183,9 +183,15 @@ namespace Scripts
                 },
             },
             Ammos = new[] {
-                Hellfire_Laser_Ammo,
-                Hellfire_Det_Ammo,
-				Hellfire_LP_Ammo,
+                // Hellfire_Laser_Ammo,
+               // Hellfire_Det_Ammo,
+                Hellfire_Pride_1,
+                Hellfire_Pride_2,
+                Hellfire_Pride_3,
+                Hellfire_Pride_4,
+                Hellfire_Pride_5,
+                Hellfire_Pride_6,
+                Hellfire_Pride_7
                 // Must list all primary, shrapnel, and pattern ammos.
             },
             //Animations = Weapon75_Animation,
