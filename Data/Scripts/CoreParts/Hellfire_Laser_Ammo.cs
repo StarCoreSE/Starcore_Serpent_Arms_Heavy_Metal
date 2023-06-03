@@ -338,14 +338,14 @@ namespace Scripts
                 },
                 Lines = new LineDef
                 {
-                    ColorVariance = Random(start: 0f, end: 0f), // multiply the color by random values within range.
+                    ColorVariance = Random(start: 0.2f, end: 1f), // multiply the color by random values within range.
                     WidthVariance = Random(start: -0.5f, end: 0.5f), // adds random value to default width (negatives shrinks width)
                     Tracer = new TracerBaseDef
                     {
                         Enable = true,
                         Length = 1f, //
                         Width = 1f, //
-                        Color = Color(red: 25, green: 3, blue: 1f, alpha: 25f), // RBG 255 is Neon Glowing, 100 is Quite Bright.
+                        Color = Color(red: 25, green: 3, blue: 9f, alpha: 0.1f), // RBG 255 is Neon Glowing, 100 is Quite Bright.
                         VisualFadeStart = 0, // Number of ticks the weapon has been firing before projectiles begin to fade their color
                         VisualFadeEnd = 0, // How many ticks after fade began before it will be invisible.
                         Textures = new[] {// WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
@@ -719,16 +719,16 @@ namespace Scripts
                 },
                 Lines = new LineDef
                 {
-                    ColorVariance = Random(start: 0f, end: 0f), // multiply the color by random values within range.
+                    ColorVariance = Random(start: 0.1f, end: 10f), // multiply the color by random values within range.
                     WidthVariance = Random(start: 0f, end: 0f), // adds random value to default width (negatives shrinks width)
                     Tracer = new TracerBaseDef
                     {
                         Enable = true,
                         Length = 1f, //
                         Width = 2f, //
-                        Color = Color(red: 50, green: 5, blue: 2f, alpha: 0.1f), // RBG 255 is Neon Glowing, 100 is Quite Bright.
-                        VisualFadeStart = 5, // Number of ticks the weapon has been firing before projectiles begin to fade their color
-                        VisualFadeEnd = 15, // How many ticks after fade began before it will be invisible.
+                        Color = Color(red: 25, green: 5, blue: 9f, alpha: 0.01f), // RBG 255 is Neon Glowing, 100 is Quite Bright.
+                        VisualFadeStart = 1, // Number of ticks the weapon has been firing before projectiles begin to fade their color
+                        VisualFadeEnd = 30, // How many ticks after fade began before it will be invisible.
                         Textures = new[] {// WeaponLaser, ProjectileTrailLine, WarpBubble, etc..
                             "WeaponLaser", // Please always have this Line set, if this Section is enabled.
                         },
