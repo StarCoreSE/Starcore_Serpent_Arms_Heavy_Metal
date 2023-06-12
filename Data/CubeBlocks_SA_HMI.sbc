@@ -381,7 +381,7 @@ Ammunition: [5000m/s,] [Kinetic] </Description>
         <SubtypeId>K_SA_HeavyMetal_Spinal_Rotary</SubtypeId>
       </Id>
       <DisplayName>Magnetic Monopole Compression Cannon</DisplayName>
-<Description>Long Ranged Fixed: [55km] 
+<Description>Long Ranged Fixed: [10km] 
 Magazine Capacity: [1] 
 Rate of Fire: [60] 
 Reload Speed: [1 seconds] 
