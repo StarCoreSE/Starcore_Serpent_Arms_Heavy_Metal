@@ -115,7 +115,7 @@ namespace Scripts
                     MuzzleCheck = false, // Whether the weapon should check LOS from each individual muzzle in addition to the scope.
                     Debug = false, // Force enables debug mode.
                     RestrictionRadius = 3, // Prevents other blocks of this type from being placed within this distance of the centre of the block.
-                    CheckInflatedBox = false, // If true, the above distance check is performed from the edge of the block instead of the centre.
+                    CheckInflatedBox = true, // If true, the above distance check is performed from the edge of the block instead of the centre.
                     CheckForAnyWeapon = true, // If true, the check will fail if ANY weapon is present, not just weapons of the same subtype.
                 },
                 Loading = new LoadingDef
@@ -128,8 +128,8 @@ namespace Scripts
                     MagsToLoad = 1, // Number of physical magazines to consume on reload.
                     DelayUntilFire = 10, // How long the weapon waits before shooting after being told to fire. Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 15, // Heat generated per shot.
-                    MaxHeat = 6000, // Max heat before weapon enters cooldown (70% of max heat).
-                    Cooldown = 0.5f, // Percentage of max heat to be under to start firing again after overheat; accepts 0 - 0.95
+                    MaxHeat = 3000, // Max heat before weapon enters cooldown (70% of max heat).
+                    Cooldown = 0.1f, // Percentage of max heat to be under to start firing again after overheat; accepts 0 - 0.95
                     HeatSinkRate = 300, // Amount of heat lost per second.
                     DegradeRof = false, // Progressively lower rate of fire when over 80% heat threshold (80% of max heat).
                     ShotsInBurst = 0, // Use this if you don't want the weapon to fire an entire physical magazine in one go. Should not be more than your magazine capacity.

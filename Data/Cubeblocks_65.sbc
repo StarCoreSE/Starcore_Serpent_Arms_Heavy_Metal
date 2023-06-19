@@ -90,9 +90,9 @@
 			<CubeSize>Large</CubeSize>
 			<GuiVisible>true</GuiVisible>
 			<BlockTopology>TriangleMesh</BlockTopology>
-			<Size x="1" y="1" z="4" />
+			<Size x="2" y="2" z="10" />
 			<ModelOffset x="0" y="0" z= "0" />
-			<Model>Models\BT_Beam_Laser_Elongated.mwm</Model>
+			<Model>Models\TheLaserYouDeserve.mwm</Model>
 			<Components>
 				<Component Subtype="SteelPlate" Count="165" />
 				<Component Subtype="Construction" Count="115" />
