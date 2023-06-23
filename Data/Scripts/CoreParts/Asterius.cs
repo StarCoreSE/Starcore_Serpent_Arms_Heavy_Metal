@@ -23,7 +23,7 @@ namespace Scripts {
                         AzimuthPartId = "GaussIIC_Rot", // Your Rotating Subpart, the bit that moves sideways
                         ElevationPartId = "GaussIIC_Ele",// Your Elevating Subpart, that bit that moves up
                         DurabilityMod = 0.25f, // GeneralDamageMultiplier, 0.25f = 25% damage taken.
-                        IconName = "TestIcon.dds" // Overlay for block inventory slots, like reactors, refineries, etc.
+                        IconName = "TestIcon.dds" //is it really TestIcon? Overlay for block inventory slots, like reactors, refineries, etc.
                     },
                     
                  },
@@ -32,15 +32,15 @@ namespace Scripts {
                     "Muzzle_GaussIC_02",
                 },
                 Ejector = "", // Optional; empty from which to eject "shells" if specified.
-                Scope = "scope_GaussIIC", // Where line of sight checks are performed from. Must be clear of block collision.
+                Scope = "scope_GaussIIC", //We should use Muzzle 01 if it continues to cease fire.
             },
             Targeting = new TargetingDef
             {
                 Threats = new[] {
-                    Grids, // Types of threat to engage: Grids, Projectiles, Characters, Meteors, Neutrals
+                    Grids, Neutrals, // Types of threat to engage: Grids, Projectiles, Characters, Meteors, Neutrals
                 },
                 SubSystems = new[] {
-                    Power, Offense, Thrust, Utility, Production, Any, // Subsystem targeting priority: Offense, Utility, Power, Production, Thrust, Jumping, Steering, Any
+                    Offense, Thrust, Utility, Power, Production, Any, // Subsystem targeting priority: Offense, Utility, Power, Production, Thrust, Jumping, Steering, Any
                 },
                 ClosestFirst = false, // Tries to pick closest targets first (blocks on grids, projectiles, etc...).
                 IgnoreDumbProjectiles = false, // Don't fire at non-smart projectiles.
@@ -56,8 +56,8 @@ namespace Scripts {
             HardPoint = new HardPointDef
             {
                 PartName = "Asterius", // Name of the weapon in terminal, should be unique for each weapon definition that shares a SubtypeId (i.e. multiweapons).
-                DeviateShotAngle = 0.25f, // Projectile inaccuracy in degrees.
-                AimingTolerance = 1f, // How many degrees off target a turret can fire at. 0 - 180 firing angle.
+                DeviateShotAngle = 0.1f, // Projectile inaccuracy in degrees.
+                AimingTolerance = 0.05f, // How many degrees off target a turret can fire at. 0 - 180 firing angle.
                 AimLeadingPrediction = Accurate, // Level of turret aim prediction; Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 second, etc..). Length of time the weapon continues firing after trigger is released.
                 AddToleranceToTracking = false, // Allows turret to track to the edge of the AimingTolerance cone instead of dead centre.
@@ -82,16 +82,16 @@ namespace Scripts {
                 },
                 HardWare = new HardwareDef
                 {
-                    RotateRate = 0.006f, // Max traversal speed of azimuth subpart in radians per tick (0.1 is approximately 360 degrees per second).
-                    ElevateRate = 0.0065f, // Max traversal speed of elevation subpart in radians per tick.
+                    RotateRate = 0.0065f, // Max traversal speed of azimuth subpart in radians per tick (0.1 is approximately 360 degrees per second).
+                    ElevateRate = 0.007f, // Max traversal speed of elevation subpart in radians per tick.
                     MinAzimuth = -180,
                     MaxAzimuth = 180,
                     MinElevation = -9,
-                    MaxElevation = 70,
+                    MaxElevation = 76,
                     HomeAzimuth = 0, // Default resting rotation angle
                     HomeElevation = 0, // Default resting elevation
                     InventorySize = 1f, // Inventory capacity in kL.
-                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    IdlePower = 1f, // Constant base power draw in MW.
                     FixedOffset = false, // Deprecated.
                     Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
                     Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
@@ -161,8 +161,8 @@ namespace Scripts {
                         Extras = new ParticleOptionDef
                         {
                             Restart = true,
-                            MaxDistance = 500,
-                            MaxDuration = 0,
+                            MaxDistance = 1800,
+                            MaxDuration = 60,
                             Scale = 1f,
                         },
                     },
@@ -175,8 +175,8 @@ namespace Scripts {
                         Extras = new ParticleOptionDef
                         {
                             Restart = false,
-                            MaxDistance = 150,
-                            MaxDuration = 0,
+                            MaxDistance = 0,
+                            MaxDuration = 1,
                             Scale = 1f,
                         },
                     },
