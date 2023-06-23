@@ -41,7 +41,7 @@ namespace Scripts {
             Targeting = new TargetingDef
             {
                 Threats = new[] {
-                    Grids, // Types of threat to engage: Grids, Projectiles, Characters, Meteors, Neutrals
+                    Grids, Neutrals, // Types of threat to engage: Grids, Projectiles, Characters, Meteors, Neutrals
                 },
                 SubSystems = new[] {
                     Offense, Utility, Power, Production, Thrust, Jumping, Steering, Any,  // Subsystem targeting priority: Offense, Utility, Power, Production, Thrust, Jumping, Steering, Any
@@ -92,16 +92,16 @@ namespace Scripts {
                 },
                 HardWare = new HardwareDef
                 {
-                    RotateRate = 0.012f, // Max traversal speed of azimuth subpart in radians per tick (0.1 is approximately 360 degrees per second).
-                    ElevateRate = 0.00675f, // Max traversal speed of elevation subpart in radians per tick.
+                    RotateRate = 0.013f, // Max traversal speed of azimuth subpart in radians per tick (0.1 is approximately 360 degrees per second).
+                    ElevateRate = 0.0075f, // Max traversal speed of elevation subpart in radians per tick.
                     MinAzimuth = -180,
                     MaxAzimuth = 180,
-                    MinElevation = -12,
-                    MaxElevation = 75,
+                    MinElevation = -13,
+                    MaxElevation = 45,
                     HomeAzimuth = 0, // Default resting rotation angle
                     HomeElevation = 0, // Default resting elevation
                     InventorySize = 1f, // Inventory capacity in kL.
-                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    IdlePower = 1f, // Constant base power draw in MW.
                     FixedOffset = false, // Deprecated.
                     Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
                     Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
@@ -172,8 +172,8 @@ namespace Scripts {
                         {
                             Loop = false, // Deprecated, set this in particle sbc.
                             Restart = true, // Whether to end the previous effect early and spawn a new one.
-                            MaxDistance = 1000, // Max distance at which this effect should be visible. NOTE: This will use whichever MaxDistance value is higher across Effect1 and Effect2!
-                            MaxDuration = 0, // How many ticks the effect should be ended after, if it's still running.
+                            MaxDistance = 4000, // Max distance at which this effect should be visible. NOTE: This will use whichever MaxDistance value is higher across Effect1 and Effect2!
+                            MaxDuration = 60, // How many ticks the effect should be ended after, if it's still running.
                             Scale = 1f, // Scale of effect.
                         },
                     },
