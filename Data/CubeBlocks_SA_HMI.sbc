@@ -239,27 +239,28 @@ Ammunition: [2500m/s,] [Kinetic] </Description>
 	  <GuiVisible>false</GuiVisible>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="5" y="4" z="5" />
-      <ModelOffset x="0" y="-2" z="0" />
+      <ModelOffset x="0" y="-1.6" z="0" />
       <Model>Models\SerpentArms\SA_GaussBlitz_Large.mwm</Model>
       <UseModelIntersection>true</UseModelIntersection>
       <Components>
-       <Component Subtype="SteelPlate" Count="2500" />
-        <Component Subtype="Superconductor" Count="225" />
-        <Component Subtype="Construction" Count="240" />
+		<Component Subtype="SteelPlate" Count="1000" />
+		<Component Subtype="GravityGenerator" Count="300" />
+		<Component Subtype="Superconductor" Count="225" />
+		<Component Subtype="Construction" Count="240" />
 		<Component Subtype="Motor" Count="120" />
 		<Component Subtype="Reactor" Count="45" />
 		<Component Subtype="Detector" Count="60" />
-        <Component Subtype="Computer" Count="250" />
-        <Component Subtype="MetalGrid" Count="250" />
-        <Component Subtype="SteelPlate" Count="3200" />
+		<Component Subtype="Computer" Count="250" />
+		<Component Subtype="MetalGrid" Count="250" />
+		<Component Subtype="SteelPlate" Count="3200" />
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
       <MountPoints>
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="3" EndY="3" />
-		 <MountPoint Side="Back" StartX="0" StartY="0" EndX="3" EndY="5" />
-		  <MountPoint Side="Front" StartX="0" StartY="0" EndX="3" EndY="5" />
-		  <MountPoint Side="Left" StartX="0" StartY="0" EndX="3" EndY="5" />
-		   <MountPoint Side="Right" StartX="0" StartY="0" EndX="3" EndY="5" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="5" EndY="5" />
+		 <MountPoint Side="Back" StartX="0" StartY="0" EndX="5" EndY="3" />
+		  <MountPoint Side="Front" StartX="0" StartY="0" EndX="5" EndY="3" />
+		  <MountPoint Side="Left" StartX="0" StartY="0" EndX="5" EndY="3" />
+		   <MountPoint Side="Right" StartX="0" StartY="0" EndX="5" EndY="3" />
       </MountPoints>
        <VoxelPlacement>
         <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
